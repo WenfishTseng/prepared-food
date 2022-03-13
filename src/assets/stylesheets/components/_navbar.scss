@@ -1,0 +1,18 @@
+.nav-item {
+  border-bottom: 1px solid transparent;
+}
+
+.nav-item:hover {
+  border-bottom: 1px solid $primary;
+  -webkit-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.nav-item:hover:after {
+  -webkit-transform: translateX(-50%) scaleX(1);
+  -ms-transform: translateX(-50%) scaleX(1);
+  -moz-transform: translateX(-50%) scaleX(1);
+  transform: translateX(-50%) scaleX(1);
+}
