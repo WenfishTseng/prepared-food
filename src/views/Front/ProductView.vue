@@ -8,65 +8,153 @@
     </div>
   </Loading>
 
-  <div
-    class="container mt-5"
-    style="
-      background-image: 'https://images.unsplash.com/photo-1564352969642-6eed54e55309?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80';
-    "
-  >
-    <div class="row justify-content-center">
-      <div class="col-md-5 offset-md-1">
-        <div class="border border-1 border-primary rounded-3 p-2">
-          <img
-            class="img-fluid rounded-1"
-            :src="product.imageUrl"
-            :alt="product.title"
-          />
-        </div>
-      </div>
-      <div class="col-md-5">
-        <h2 class="h4">{{ product.title }}</h2>
-        <p>商品描述：{{ product.description }}</p>
-        <p>商品內容：{{ product.content }}</p>
-        <div class="h5" v-if="product.price === product.origin_price">
-          {{ product.price }} 元
-        </div>
-        <div v-else>
-          <div class="h6 text-decoration-line-through">
-            原價 {{ product.origin_price }} 元
-          </div>
-          <div class="h5 text-danger fw-bold">
-            現在只要 {{ product.price }} 元
-          </div>
-        </div>
-        <div>
-          <div class="input-group">
-            <input
-              type="number"
-              class="form-control"
-              v-model.number="qty"
-              min="1"
+  <div class="bg-light">
+    <div
+      class="container py-6 py-lg-8"
+      style="
+        background-image: 'https://images.unsplash.com/photo-1564352969642-6eed54e55309?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80';
+      "
+    >
+      <div class="row justify-content-center">
+        <div class="col-lg-5">
+          <div class="border border-1 border-primary rounded-3 p-1">
+            <img
+              class="img-fluid rounded-1"
+              :src="product.imageUrl"
+              :alt="product.title"
             />
-            <button type="button" class="btn btn-danger" @click="addCartQty">
-              加入購物車
-            </button>
           </div>
         </div>
+        <div class="offset-lg-1 col-lg-5">
+          <h2 class="h3 my-3 my-lg-4">{{ product.title }}</h2>
+          <div class="h5" v-if="product.price === product.origin_price">
+            {{ product.price }} 元
+          </div>
+          <div v-else>
+            <div class="h5 text-danger fw-bold">
+              <span class="h6 text-dark text-decoration-line-through me-3">
+                原價 {{ product.origin_price }} 元
+              </span>
+              現在只要 {{ product.price }} 元
+            </div>
+          </div>
+          <p>{{ product.description }}</p>
+          <p class="mb-0">
+            <a
+              class="btn btn-link px-0 mb-0"
+              data-bs-toggle="collapse"
+              href="#collapseExample"
+            >
+              詳細資訊
+            </a>
+          </p>
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body border-0 px-0 bg-light">
+              {{ product.content }}
+            </div>
+          </div>
+          <div class="my-3">
+            <div class="input-group">
+              <input
+                type="number"
+                class="form-control"
+                v-model.number="qty"
+                min="1"
+              />
+              <button type="button" class="btn btn-danger link-light" @click="addCartQty">
+                加入購物車
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- col-sm-6 end -->
       </div>
-      <!-- col-sm-6 end -->
+      <div class="row mt-6 mt-lg-8">
+        <h2 class="h4">你曾看過</h2>
+        <div class="col">
+          <swiper
+            :slidesPerView="1"
+            :spaceBetween="10"
+            :autoplay="{ delay: 2500, disableOnInteraction: false }"
+            :pagination="{
+              clickable: true
+            }"
+            :breakpoints="{
+              '640': {
+                slidesPerView: 1,
+                spaceBetween: 20
+              },
+              '768': {
+                slidesPerView: 2,
+                spaceBetween: 40
+              },
+              '1024': {
+                slidesPerView: 4,
+                spaceBetween: 50
+              }
+            }"
+            :modules="modules"
+            class="mySwiper"
+          >
+            <template v-for="product in swiperProducts" :key="product.id">
+              <swiper-slide
+                v-if="
+                  product.category === '飯類' || product.category === '麵類'
+                "
+                class="pt-3 pb-5"
+              >
+                <div class="card border-0 position-relative h-100 bg-light">
+                  <img
+                    :src="product.imageUrl"
+                    style="height: 200px; object-fit: cover"
+                    :alt="product.title"
+                  />
+                  <div class="position-absolute top-10 start-0">
+                    <div class="card-title text-white bg-primary px-2 py-1">
+                      {{ product.category }}
+                    </div>
+                  </div>
+                  <div
+                    class="d-flex justify-content-between align-items-start mt-2"
+                  >
+                    <h3 class="h5 mb-0">{{ product.title }}</h3>
+                    <span class="badge rounded-pill bg-info">{{
+                      product.unit
+                    }}</span>
+                  </div>
+                  <div
+                    class="d-flex justify-content-between align-items-end mt-0"
+                  >
+                    <span class="mb-0 text-decoration-line-through"
+                      >NT$ 1200</span
+                    >
+                    <span class="text-primary h5 mb-0">特價：NT$ 999</span>
+                  </div>
+                </div>
+              </swiper-slide>
+            </template>
+          </swiper>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 // import emitter from '@/libs/emitter.js'
+import { Autoplay, Navigation, Pagination } from 'swiper'
+
+import 'swiper/modules/navigation/navigation.min.css'
+import 'swiper/modules/pagination/pagination.min.css'
 
 export default {
   data () {
     return {
       isLoading: false,
       product: {},
-      qty: 1
+      swiperProducts: {},
+      qty: 1,
+      modules: [Autoplay, Navigation, Pagination]
     }
   },
   methods: {
@@ -83,6 +171,21 @@ export default {
         })
         .catch((error) => {
           alert(error.response.data.message)
+        })
+    },
+    getProducts () {
+      this.isLoading = true
+      this.$http
+        .get(
+          `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products/all`
+        )
+        .then((response) => {
+          this.swiperProducts = response.data.products
+          this.isLoading = false
+        })
+        .catch((error) => {
+          this.isLoading = false
+          alert(error.data.message)
         })
     },
     addCartQty () {
@@ -103,6 +206,7 @@ export default {
   },
   created () {
     this.getProduct()
+    this.getProducts()
   }
 }
 </script>
