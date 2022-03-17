@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row justify-content-lg-center">
-      <div class="col-lg-9">
+      <div class="col-lg-12">
         <div class="text-end mt-4">
           <button class="btn btn-primary" @click="openProductModal('add', '')">
             建立新的產品
@@ -14,8 +14,9 @@
               <th>產品名稱</th>
               <th width="120">原價</th>
               <th width="120">售價</th>
-              <th width="100">是否啟用</th>
-              <th width="120">編輯</th>
+              <th width="150">單位</th>
+              <th width="120">是否啟用</th>
+              <th width="180">編輯</th>
             </tr>
           </thead>
           <tbody>
@@ -24,6 +25,7 @@
               <td>{{ product.title }}</td>
               <td>{{ product.origin_price }}</td>
               <td>{{ product.price }}</td>
+              <td>{{ product.unit }}</td>
               <td>
                 <span class="text-info fw-bold" v-if="product.is_enabled">啟用</span>
                 <span v-else>未啟用</span>

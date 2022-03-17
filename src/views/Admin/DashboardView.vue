@@ -17,15 +17,15 @@
               >產品管理列表</router-link
             >
           </li>
-          <!-- <li class="nav-item">
-            <router-link class="nav-link" to="/adminCoupon">優惠券列表</router-link>
-          </li> -->
-          <!-- <li class="nav-item">
+          <li class="nav-item">
             <router-link class="nav-link" to="/admin/order"
               >訂單列表</router-link
             >
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
+            <router-link class="nav-link" to="/adminCoupon">優惠券列表</router-link>
+          </li> -->
+          <!-- <li class="nav-item">
             <a
               type="button"
               class="nav-link"
@@ -76,8 +76,8 @@ export default {
             this.$router.push('/admin/products')
           })
           .catch((error) => {
-            alert(error.response.data.message)
             this.$router.push('/login')
+            alert(error.response.data.message)
           })
       }
     },
