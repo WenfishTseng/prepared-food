@@ -13,7 +13,9 @@
         <div class="col-lg-4 text-light">
           <div class="text-center px-4 py-5">
             <h1 class="logo text-shadow mb-3">加熱煮藝</h1>
-            <h2 class="h5 mb-6 fw-bold text-nowrap logo text-dark text-shadow fst-italic">
+            <h2
+              class="h5 mb-6 fw-bold text-nowrap logo text-dark text-shadow fst-italic"
+            >
               愜意生活也可以隨時保持滿滿的儀式感。
             </h2>
             <form class="row justify-content-center">
@@ -117,34 +119,30 @@
       :modules="modules"
       class="mySwiper"
     >
-      <swiper-slide
-        v-for="product in products"
-        :key="product.id"
-        class="pt-3 pb-5"
-      >
-        <div class="card border-0 position-relative h-100">
-          <img
-            :src="product.imageUrl"
-            style="height: 200px; object-fit: cover"
-            :alt="product.title"
-          />
-          <div class="position-absolute top-10 start-0">
-            <div class="card-title text-white bg-primary px-2 py-1">
-              {{ product.category }}
+      <template v-for="product in products" :key="product.id">
+        <swiper-slide v-if="product.category === '肉類'" class="pt-3 pb-5">
+          <div class="card border-0 position-relative h-100">
+            <img
+              :src="product.imageUrl"
+              style="height: 200px; object-fit: cover"
+              :alt="product.title"
+            />
+            <div class="position-absolute top-10 start-0">
+              <div class="card-title text-white bg-primary px-2 py-1">
+                {{ product.category }}
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-start mt-2">
+              <h3 class="h5 mb-0">{{ product.title }}</h3>
+              <span class="badge rounded-pill bg-info">{{ product.unit }}</span>
+            </div>
+            <div class="d-flex justify-content-between align-items-end mt-0">
+              <span class="mb-0 text-decoration-line-through">NT$ 1200</span>
+              <span class="text-primary h5 mb-0">特價：NT$ 999</span>
             </div>
           </div>
-          <div class="d-flex justify-content-between align-items-start mt-2">
-            <h3 class="h5 mb-0">{{ product.title }}</h3>
-            <span class="badge rounded-pill bg-info">{{
-              product.unit
-            }}</span>
-          </div>
-          <div class="d-flex justify-content-between align-items-end mt-0">
-            <span class="mb-0 text-decoration-line-through">NT$ 1200</span>
-            <span class="text-primary h5 mb-0">特價：NT$ 999</span>
-          </div>
-        </div>
-      </swiper-slide>
+        </swiper-slide>
+      </template>
     </swiper>
   </section>
 
@@ -153,7 +151,9 @@
       <h3 class="text-center mb-3 mb-md-5">請問你是哪一派？</h3>
       <div class="row">
         <div class="col-lg-4 offset-lg-2 mb-lg-5">
-          <div class="d-flex justify-content-around align-items-center text-hover">
+          <div
+            class="d-flex justify-content-around align-items-center text-hover"
+          >
             <img
               class="rounded-circle circle-card"
               src="https://images.unsplash.com/photo-1577303935007-0d306ee638cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1140&q=80"
@@ -163,7 +163,9 @@
           </div>
         </div>
         <div class="col-lg-4 mb-lg-5">
-          <div class="d-flex justify-content-around align-items-center text-hover">
+          <div
+            class="d-flex justify-content-around align-items-center text-hover"
+          >
             <p class="h5">甜蜜人生</p>
             <img
               class="rounded-circle circle-card"
@@ -173,7 +175,9 @@
           </div>
         </div>
         <div class="col-lg-4 offset-lg-2 mb-lg-5">
-          <div class="d-flex justify-content-around align-items-center text-hover">
+          <div
+            class="d-flex justify-content-around align-items-center text-hover"
+          >
             <img
               class="rounded-circle circle-card"
               src="https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
@@ -183,7 +187,9 @@
           </div>
         </div>
         <div class="col-lg-4">
-          <div class="d-flex justify-content-around align-items-center text-hover">
+          <div
+            class="d-flex justify-content-around align-items-center text-hover"
+          >
             <p class="h5">蔬食主義</p>
             <img
               class="rounded-circle circle-card"
@@ -198,7 +204,6 @@
 
   <section class="container py-5">
     <h2 class="h4 text-center">店長推薦</h2>
-    <!-- Swiper -->
     <swiper
       :slidesPerView="1"
       :spaceBetween="10"
@@ -223,34 +228,30 @@
       :modules="modules"
       class="mySwiper"
     >
-      <swiper-slide
-        v-for="product in products"
-        :key="product.id"
-        class="pt-3 pb-5"
-      >
-        <div class="card border-0 position-relative h-100">
-          <img
-            :src="product.imageUrl"
-            style="height: 200px; object-fit: cover"
-            :alt="product.title"
-          />
-          <div class="position-absolute top-10 start-0">
-            <div class="card-title text-white bg-primary px-2 py-1">
-              {{ product.category }}
+      <template v-for="product in products" :key="product.id">
+        <swiper-slide v-if="product.category === '飯類' || product.category ==='麵類'" class="pt-3 pb-5">
+          <div class="card border-0 position-relative h-100">
+            <img
+              :src="product.imageUrl"
+              style="height: 200px; object-fit: cover"
+              :alt="product.title"
+            />
+            <div class="position-absolute top-10 start-0">
+              <div class="card-title text-white bg-primary px-2 py-1">
+                {{ product.category }}
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-start mt-2">
+              <h3 class="h5 mb-0">{{ product.title }}</h3>
+              <span class="badge rounded-pill bg-info">{{ product.unit }}</span>
+            </div>
+            <div class="d-flex justify-content-between align-items-end mt-0">
+              <span class="mb-0 text-decoration-line-through">NT$ 1200</span>
+              <span class="text-primary h5 mb-0">特價：NT$ 999</span>
             </div>
           </div>
-          <div class="d-flex justify-content-between align-items-center mt-2">
-            <h3 class="h5 mb-0">{{ product.title }}</h3>
-            <span class="badge rounded-pill bg-primary">{{
-              product.unit
-            }}</span>
-          </div>
-          <div class="d-flex justify-content-between align-items-end mt-0">
-            <span class="mb-0 text-decoration-line-through">NT$ 1200</span>
-            <span class="text-primary h5 mb-0">特價：NT$ 999</span>
-          </div>
-        </div>
-      </swiper-slide>
+        </swiper-slide>
+      </template>
     </swiper>
   </section>
 

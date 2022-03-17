@@ -16,7 +16,7 @@
 
   <footer class="container-fluid bg-dark text-light">
     <div class="container">
-      <div class="row align-items-center">
+      <div class="row align-items-center" style="height:300px">
         <div class="col-6 my-5">
           <a class="logo navbar-brand" href="#">加熱煮藝</a>
         </div>

@@ -115,7 +115,7 @@
       <div class="col-12">
         <div class="row justify-content-end">
           <div class="col-3">
-            <button class="btn btn-outline-dark w-100" type="button">
+            <button class="btn btn-outline-dark w-100" @click="goProductsPage" type="button">
               繼續購物
             </button>
           </div>
@@ -206,6 +206,9 @@ export default {
         .catch((error) => {
           alert(error.data.message)
         })
+    },
+    goProductsPage () {
+      this.$router.push('/products')
     },
     goOrderPage () {
       this.$router.push('/order')
