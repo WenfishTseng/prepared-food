@@ -1,27 +1,39 @@
 <template>
   <!-- sticky-top -->
-  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <a class="logo navbar-brand" href="#">加熱煮藝</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#myNavbar"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-end w-100">
-          <li class="nav-item">
-            <router-link class="nav-link" to="/products">產品列表</router-link>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <div class="bg-primary text-light">
+    <ul class="list-unstyled d-flex justify-content-center align-content-center mb-0">
+      <li class="my-1"><a class="link-light" href="#"><i class="bi bi-facebook"></i></a></li>
+      <li class="mx-3 my-1"><a class="link-light" href="#"><i class="bi bi-instagram"></i></a></li>
+      <li class="my-1"><a class="link-light" href="#"><i class="bi bi-twitter"></i></a></li>
+    </ul>
+  </div>
+
+  <FrontNavbar></FrontNavbar>
 
   <main>
     <router-view />
   </main>
+
+  <footer class="container-fluid bg-dark text-light">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-6 my-5">
+          <a class="logo navbar-brand" href="#">加熱煮藝</a>
+        </div>
+        <div class="col-6 text-end">
+          <router-link class="nav-link" to="/login"
+            >管理 <i class="bi bi-wrench-adjustable-circle-fill"></i>
+          </router-link>
+        </div>
+      </div>
+    </div>
+  </footer>
 </template>
+
+<script>
+import FrontNavbar from '@/components/FrontNavbar.vue'
+
+export default {
+  components: { FrontNavbar }
+}
+</script>
