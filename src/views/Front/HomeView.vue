@@ -95,55 +95,7 @@
   <section class="container py-5">
     <h2 class="h4 text-center">熱銷好評</h2>
     <!-- Swiper -->
-    <swiper
-      :slidesPerView="1"
-      :spaceBetween="10"
-      :autoplay="{ delay: 2500, disableOnInteraction: false }"
-      :pagination="{
-        clickable: true
-      }"
-      :breakpoints="{
-        '640': {
-          slidesPerView: 1,
-          spaceBetween: 20
-        },
-        '768': {
-          slidesPerView: 2,
-          spaceBetween: 40
-        },
-        '1024': {
-          slidesPerView: 4,
-          spaceBetween: 50
-        }
-      }"
-      :modules="modules"
-      class="mySwiper"
-    >
-      <template v-for="product in products" :key="product.id">
-        <swiper-slide v-if="product.category === '肉類'" class="pt-3 pb-5">
-          <div class="card border-0 position-relative h-100">
-            <img
-              :src="product.imageUrl"
-              style="height: 200px; object-fit: cover"
-              :alt="product.title"
-            />
-            <div class="position-absolute top-10 start-0">
-              <div class="card-title text-white bg-primary px-2 py-1">
-                {{ product.category }}
-              </div>
-            </div>
-            <div class="d-flex justify-content-between align-items-start mt-2">
-              <h3 class="h5 mb-0">{{ product.title }}</h3>
-              <span class="badge rounded-pill bg-info">{{ product.unit }}</span>
-            </div>
-            <div class="d-flex justify-content-between align-items-end mt-0">
-              <span class="mb-0 text-decoration-line-through">NT$ 1200</span>
-              <span class="text-primary h5 mb-0">特價：NT$ 999</span>
-            </div>
-          </div>
-        </swiper-slide>
-      </template>
-    </swiper>
+    <SwiperProducts :products="products" filter-cate="肉類"></SwiperProducts>
   </section>
 
   <section class="bg-light py-5 py-lg-6">
@@ -151,7 +103,8 @@
       <h3 class="text-center mb-3 mb-md-5">請問你是哪一派？</h3>
       <div class="row">
         <div class="col-lg-4 offset-lg-2 mb-lg-5">
-          <div
+          <router-link
+            :to="{ path: '/products' }"
             class="d-flex justify-content-around align-items-center text-hover"
           >
             <img
@@ -160,10 +113,11 @@
               alt=""
             />
             <p class="h5">無肉不歡</p>
-          </div>
+          </router-link>
         </div>
         <div class="col-lg-4 mb-lg-5">
-          <div
+          <router-link
+            :to="{ path: '/products' }"
             class="d-flex justify-content-around align-items-center text-hover"
           >
             <p class="h5">甜蜜人生</p>
@@ -172,10 +126,11 @@
               src="https://images.unsplash.com/photo-1602296751259-edfb8274b682?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
               alt=""
             />
-          </div>
+          </router-link>
         </div>
         <div class="col-lg-4 offset-lg-2 mb-lg-5">
-          <div
+          <router-link
+            :to="{ path: '/products' }"
             class="d-flex justify-content-around align-items-center text-hover"
           >
             <img
@@ -184,10 +139,11 @@
               alt=""
             />
             <p class="h5">輕食慢活</p>
-          </div>
+          </router-link>
         </div>
         <div class="col-lg-4">
-          <div
+          <router-link
+            :to="{ path: '/products' }"
             class="d-flex justify-content-around align-items-center text-hover"
           >
             <p class="h5">蔬食主義</p>
@@ -196,7 +152,7 @@
               src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
               alt=""
             />
-          </div>
+          </router-link>
         </div>
       </div>
     </div>
@@ -204,64 +160,15 @@
 
   <section class="container py-5">
     <h2 class="h4 text-center">店長推薦</h2>
-    <swiper
-      :slidesPerView="1"
-      :spaceBetween="10"
-      :autoplay="{ delay: 2500, disableOnInteraction: false }"
-      :pagination="{
-        clickable: true
-      }"
-      :breakpoints="{
-        '640': {
-          slidesPerView: 1,
-          spaceBetween: 20
-        },
-        '768': {
-          slidesPerView: 2,
-          spaceBetween: 40
-        },
-        '1024': {
-          slidesPerView: 4,
-          spaceBetween: 50
-        }
-      }"
-      :modules="modules"
-      class="mySwiper"
-    >
-      <template v-for="product in products" :key="product.id">
-        <swiper-slide v-if="product.category === '飯類' || product.category ==='麵類'" class="pt-3 pb-5">
-          <div class="card border-0 position-relative h-100">
-            <img
-              :src="product.imageUrl"
-              style="height: 200px; object-fit: cover"
-              :alt="product.title"
-            />
-            <div class="position-absolute top-10 start-0">
-              <div class="card-title text-white bg-primary px-2 py-1">
-                {{ product.category }}
-              </div>
-            </div>
-            <div class="d-flex justify-content-between align-items-start mt-2">
-              <h3 class="h5 mb-0">{{ product.title }}</h3>
-              <span class="badge rounded-pill bg-info">{{ product.unit }}</span>
-            </div>
-            <div class="d-flex justify-content-between align-items-end mt-0">
-              <span class="mb-0 text-decoration-line-through">NT$ 1200</span>
-              <span class="text-primary h5 mb-0">特價：NT$ 999</span>
-            </div>
-          </div>
-        </swiper-slide>
-      </template>
-    </swiper>
+    <SwiperProducts :products="products" filter-cate="甜點"></SwiperProducts>
   </section>
-
 </template>
 
 <script>
 import { Autoplay, Navigation, Pagination } from 'swiper'
-
 import 'swiper/modules/navigation/navigation.min.css'
 import 'swiper/modules/pagination/pagination.min.css'
+import SwiperProducts from '@/components/SwiperProducts.vue'
 
 export default {
   name: 'Home',
@@ -272,6 +179,7 @@ export default {
       modules: [Autoplay, Navigation, Pagination]
     }
   },
+  components: { SwiperProducts },
   methods: {
     getProducts () {
       this.isLoading = true
