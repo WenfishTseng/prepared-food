@@ -5,7 +5,7 @@
         <div class="col-lg-4">
           <p class="h2 text-center"><i class="bi bi-wrench-adjustable-circle-fill"></i></p>
           <h2 class="h4 text-center mb-3">管理者登入</h2>
-          <form class="bg-white p-5">
+          <form class="bg-white p-5" @submit="login">
             <div class="form-floating mb-3">
               <input
                 v-model="user.username"
@@ -30,9 +30,8 @@
               <label for="passwordInput">Password</label>
             </div>
             <button
-              @click="login"
               class="btn btn-lg btn-primary w-100 mt-3"
-              type="button"
+              type="submit"
             >
               登入
             </button>
@@ -65,6 +64,8 @@ export default {
         })
         .catch((error) => {
           alert(error.response.data.message)
+          this.user.username = ''
+          this.user.password = ''
         })
     }
   }
