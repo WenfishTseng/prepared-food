@@ -14,6 +14,7 @@ const routes = [
         component: () => import('../views/Front/HomeView.vue')
       },
       {
+        name: 'products',
         path: 'products',
         component: () => import('../views/Front/ProductsView.vue'),
         meta: {
@@ -42,6 +43,13 @@ const routes = [
         }
       },
       {
+        path: 'result',
+        component: () => import('../views/Front/OrderResultView.vue'),
+        meta: {
+          title: '訂購結果 - 加熱煮藝'
+        }
+      },
+      {
         path: 'login',
         component: () => import('../views/Front/LoginView.vue'),
         meta: {
@@ -67,8 +75,20 @@ const routes = [
         meta: {
           title: '訂單 - 後台修改'
         }
+      },
+      {
+        path: 'coupon',
+        component: () => import('../views/Admin/AdminCoupon.vue'),
+        meta: {
+          title: '優惠券 - 後台修改'
+        }
       }
     ]
+  },
+  // 重導向
+  {
+    path: '/:pathMatch(.*)*',
+    component: () => import('../views/Front/NotFound.vue')
   }
 ]
 
@@ -83,6 +103,10 @@ router.beforeEach((to, from, next) => {
     document.title = to.meta.title
   }
   next()
+})
+
+router.afterEach((to, from, next) => {
+  window.scrollTo(0, 0)
 })
 
 export default router
