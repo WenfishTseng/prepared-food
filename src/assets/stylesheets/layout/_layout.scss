@@ -31,12 +31,11 @@
   height: 200px;
   width: 200px;
   object-fit: cover;
-  border: 3px solid transparent;
-}
-
-.circle-card:hover {
-  border: 3px solid $secondary ;
+  &:hover {
+  text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.1);
+  box-shadow:  1px 1px 1px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
+  }
 }
 
 .top-10 {
@@ -62,10 +61,10 @@
   }
 }
 
-.text-hover:hover {
-  text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-}
+// .text-hover:hover {
+//   text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.2);
+//   transition: 0.3s;
+// }
 
 .category-hover {
   &:hover {

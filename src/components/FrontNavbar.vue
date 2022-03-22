@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light shadow-sm">
     <div class="container">
       <a class="logo navbar-brand" href="#"><h1 class="h4 mb-0">加熱煮藝</h1></a>
       <button

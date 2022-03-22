@@ -23,6 +23,12 @@ import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json'
 import { Swiper, SwiperSlide } from 'swiper/vue/swiper-vue'
 // Styles must use direct files imports
 import 'swiper/swiper.scss'
+// wow
+import 'animate.css'
+// import WOW from 'wowjs'
+// aos
+import 'aos/dist/aos.css'
+
 import { date } from './methods/filters'
 import App from './App.vue'
 import router from './router'
@@ -38,7 +44,7 @@ configure({
 })
 // 設定預設語系
 setLocale('zh_TW')
-
+// const app = createApp(App).use(router)
 const app = createApp(App).use(router)
 app.use(VueAxios, axios)
 app.config.globalProperties.$filters = { date }
@@ -50,3 +56,4 @@ app.component('ErrorMessage', ErrorMessage)
 app.component('Swiper', Swiper)
 app.component('SwiperSlide', SwiperSlide)
 app.mount('#app')
+// new WOW({ live: false }).init()

@@ -8,7 +8,7 @@
     </div>
   </Loading>
   <div class="container my-5 my-lg-6">
-    <div class="row row-cols-6 g-0 mb-lg-5">
+    <div class="row row-cols-6 g-0 mb-lg-5" data-aos="fade-right" data-aos-duration="1500">
       <div class="category-hover col py-1">
         <div
           @click="getProducts"
@@ -68,15 +68,16 @@
         </div>
       </div>
     </div>
-    <div class="row justify-content-center my-5">
+    <div class="row justify-content-center my-5" data-aos="fade-left" data-aos-duration="1500">
       <div class="col-md-4">
         <form class="d-flex">
           <input
+            v-model="inputKeyword"
             class="form-control me-auto"
             type="search"
             placeholder="今天要吃甚麼"
           />
-          <button class="btn btn-outline-secondary" type="submit">
+          <button class="btn btn-outline-secondary" type="submit" @click.prevent="searchKeyword">
             Search
           </button>
         </form>
@@ -158,17 +159,27 @@
 </template>
 
 <script>
+import AOS from 'aos'
+
 export default {
   name: 'Products',
   data () {
     return {
       isCartLoadingId: '',
       isLoading: false,
-      products: {},
-      favoriteItem: JSON.parse(localStorage.getItem('favors')) || []
+      products: [],
+      allProductsList: [],
+      favoriteItem: JSON.parse(localStorage.getItem('favors')) || [],
+      inputKeyword: ''
     }
   },
   methods: {
+    searchKeyword () {
+      this.products = this.allProductsList.filter((item) => {
+        return item.title.match(this.inputKeyword.trim())
+      })
+      this.inputKeyword = ''
+    },
     getProducts () {
       this.renderProductsByCategory()
     },
@@ -181,9 +192,8 @@ export default {
         )
         .then((response) => {
           this.cartData = response.data.data
-          // emitter.emit('get-cart')
-          alert(response.data.message)
           this.isLoading = false
+          alert(response.data.message)
         })
         .catch((error) => {
           alert(error)
@@ -199,6 +209,7 @@ export default {
       this.$http
         .get(apiUrl)
         .then((response) => {
+          this.allProductsList = response.data.products
           this.products = response.data.products
           this.isLoading = false
         })
@@ -227,6 +238,7 @@ export default {
   },
   created () {
     this.getProducts()
+    AOS.init({})
   }
 }
 </script>
