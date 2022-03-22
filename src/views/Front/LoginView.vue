@@ -5,7 +5,7 @@
         <div class="col-lg-4">
           <p class="h2 text-center"><i class="bi bi-wrench-adjustable-circle-fill"></i></p>
           <h2 class="h4 text-center mb-3">管理者登入</h2>
-          <form class="bg-white p-5" @submit="login">
+          <form class="bg-white p-5" @submit.prevent="login">
             <div class="form-floating mb-3">
               <input
                 v-model="user.username"
