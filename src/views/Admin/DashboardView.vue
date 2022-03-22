@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
     <div class="container">
-      <a class="navbar-brand" href="#">加熱煮藝</a>
+      <router-link class="navbar-brand logo" to="/admin/products" href="#">加熱煮藝</router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -13,7 +13,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link class="nav-link active" to="/admin/products"
+            <router-link class="nav-link" to="/admin/products"
               >產品管理列表</router-link
             >
           </li>
@@ -22,9 +22,9 @@
               >訂單列表</router-link
             >
           </li>
-          <!-- <li class="nav-item">
-            <router-link class="nav-link" to="/adminCoupon">優惠券列表</router-link>
-          </li> -->
+          <li class="nav-item">
+            <router-link class="nav-link" to="/admin/coupon">優惠券列表</router-link>
+          </li>
           <!-- <li class="nav-item">
             <a
               type="button"
