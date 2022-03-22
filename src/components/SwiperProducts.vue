@@ -44,8 +44,8 @@
             <span class="badge rounded-pill bg-info">{{ product.unit }}</span>
           </div>
           <div class="d-flex justify-content-between align-items-end mt-0">
-            <span class="mb-0 text-decoration-line-through text-dark">NT$ 1200</span>
-            <span class="text-primary h5 mb-0">特價：NT$ 999</span>
+            <span class="mb-0 text-decoration-line-through text-dark">NT$ {{product.origin_price}}</span>
+            <span class="text-primary h5 mb-0">特價：NT$ {{product.price}}</span>
           </div>
         </router-link>
       </swiper-slide>
