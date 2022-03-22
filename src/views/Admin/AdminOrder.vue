@@ -12,7 +12,7 @@
               <th width="100">訂單金額</th>
               <th width="100">總金額</th>
               <th width="100">是否付款</th>
-              <th width="120">編輯</th>
+              <th width="180">編輯</th>
             </tr>
           </thead>
           <tbody>
@@ -51,7 +51,7 @@
                 <div class="btn-group">
                   <button
                     type="button"
-                    class="btn btn-outline-secondary btn-sm me-2"
+                    class="btn btn-outline-info btn-sm me-2"
                     @click="openEditModal('edit', product)"
                   >
                     編輯

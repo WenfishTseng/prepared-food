@@ -114,8 +114,6 @@
                     id="is_paid"
                     class="form-check-input"
                     type="checkbox"
-                    :true-value="1"
-                    :false-value="0"
                     v-model="tempProduct.is_paid"
                   />
                   <label class="form-check-label" for="is_paid">是否付款</label>
