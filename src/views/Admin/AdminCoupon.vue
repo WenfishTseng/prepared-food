@@ -59,7 +59,7 @@
         </form>
       </div>
       <div class="offset-lg-1 col-lg-6">
-        <div class="row row-cols-2">
+        <div class="row row-cols-2 g-3">
           <div class="col" v-for="item in coupons" :key="item.title + '123'">
             <div class="card text-center">
               <div class="card-header">
@@ -116,6 +116,7 @@ export default {
         )
         .then((response) => {
           if (response.data.success) {
+            console.log(response.data.coupons)
             this.coupons = response.data.coupons
             // this.coupon.due_date = Math.floor(new Date(this.coupon.due_date) / 1000)
           }

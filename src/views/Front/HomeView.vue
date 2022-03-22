@@ -65,13 +65,13 @@
         </p>
         <div class="row">
           <div class="col-6">
-            <button
+            <router-link to="/products"
               class="btn btn-outline-dark w-100"
               data-aos="fade-left"
               data-aos-duration="1300"
             >
               查看更多
-            </button>
+              </router-link>
           </div>
         </div>
       </div>
@@ -94,10 +94,12 @@
           </p>
           <div class="row mb-3" data-aos="fade-right" data-aos-duration="1500">
             <div class="col-6">
-              <button class="btn btn-primary w-100">立即購買</button>
+              <router-link class="btn btn-primary w-100" to="/products"
+                  >立即購買</router-link
+                >
             </div>
             <div class="col-6">
-              <button class="btn btn-outline-dark w-100">查看更多</button>
+              <router-link to="/products" class="btn btn-outline-dark w-100">查看更多</router-link>
             </div>
           </div>
         </div>
