@@ -173,6 +173,7 @@ export default {
       inputKeyword: ''
     }
   },
+
   methods: {
     searchKeyword () {
       this.products = this.allProductsList.filter((item) => {

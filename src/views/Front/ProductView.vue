@@ -144,10 +144,13 @@
       </div>
     </div>
   </div>
+  <CouponModal ref="couponModal"></CouponModal>
+
 </template>
 
 <script>
 // import emitter from '@/libs/emitter.js'
+import CouponModal from '@/components/CouponModal.vue'
 import { Autoplay, Navigation, Pagination, Thumbs, FreeMode } from 'swiper'
 
 import 'swiper/modules/navigation/navigation.min.css'
@@ -164,6 +167,13 @@ export default {
       swiperProducts: {},
       qty: 1,
       modules: [Autoplay, Navigation, Pagination, Thumbs, FreeMode]
+    }
+  },
+  components: { CouponModal },
+  watch: {
+    $route (to) {
+      this.id = to.params.id
+      this.getProduct()
     }
   },
   methods: {
@@ -217,6 +227,9 @@ export default {
     AOS.init({})
     this.getProduct()
     this.getProducts()
+  },
+  mounted () {
+    this.$refs.couponModal.openModal()
   }
 }
 </script>
