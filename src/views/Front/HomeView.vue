@@ -138,7 +138,7 @@
       熱銷好評
     </h2>
     <!-- Swiper -->
-    <div data-aos="fade-right" data-aos-duration="1500">
+    <div data-aos="fade-top" data-aos-duration="1500">
       <SwiperProducts :products="products" filter-cate="肉類"></SwiperProducts>
     </div>
   </section>
@@ -147,8 +147,8 @@
     <div class="container">
       <h3
         class="text-center mb-3 mb-md-5"
-        data-aos="fade-left"
-        data-aos-duration="1200"
+        data-aos="fade-right"
+        data-aos-duration="1300"
       >
         請問你是哪一派？
       </h3>
@@ -221,7 +221,7 @@
     <h2 class="h4 text-center" data-aos="fade-left" data-aos-duration="1200">
       店長推薦
     </h2>
-    <div data-aos="fade-right" data-aos-duration="1500">
+    <div data-aos="fade-top" data-aos-duration="1500">
       <SwiperProducts :products="products" filter-cate="甜點"></SwiperProducts>
     </div>
   </section>
