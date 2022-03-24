@@ -98,10 +98,6 @@
                     @click="removeCartItem(item.id)"
                     class="btn btn-outline-danger btn-sm"
                   >
-                    <i
-                      class="fas fa-spinner fa-pulse"
-                      v-show="item.id === isDeleteLoadingItem"
-                    ></i>
                     x
                   </button>
                 </td>
@@ -175,10 +171,8 @@ export default {
           this.cartData = response.data.data
           emitter.emit('get-cart')
           this.isLoading = false
-          console.log(this.cartData)
         })
         .catch((error) => {
-          this.isLoading = false
           alert(error)
         })
     },
@@ -194,19 +188,16 @@ export default {
           this.isCartLoadingItem = ''
         })
         .catch((error) => {
-          alert(error.data)
+          alert(error)
         })
     },
     removeCartItem (id) {
-      this.isDeleteLoadingItem = id
       this.$http
         .delete(
           `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart/${id}`
         )
         .then((response) => {
           this.getCarts()
-          // 讀完清空id
-          this.isDeleteLoadingItem = ''
         })
         .catch((error) => {
           alert(error.data.message)

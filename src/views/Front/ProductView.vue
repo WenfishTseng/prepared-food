@@ -8,13 +8,8 @@
     </div>
   </Loading>
 
-  <div class="bg-light">
-    <div
-      class="container py-6 py-lg-8"
-      style="
-        background-image: 'https://images.unsplash.com/photo-1564352969642-6eed54e55309?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80';
-      "
-    >
+  <div class="container-fluid bg-light">
+    <div class="container py-6 py-lg-8">
       <div class="row justify-content-center">
         <div class="col-lg-5" data-aos="fade-left" data-aos-duration="1600">
           <div class="border border-1 border-primary rounded-3 p-1">
@@ -25,13 +20,17 @@
             />
           </div>
         </div>
-        <div class="offset-lg-1 col-lg-5" data-aos="fade-right" data-aos-duration="1800">
+        <div
+          class="offset-lg-1 col-lg-5"
+          data-aos="fade-right"
+          data-aos-duration="1800"
+        >
           <h2 class="h3 my-3 my-lg-4">{{ product.title }}</h2>
           <div class="h5" v-if="product.price === product.origin_price">
             {{ product.price }} 元
           </div>
           <div v-else>
-            <div class="h5 text-danger fw-bold" >
+            <div class="h5 text-danger fw-bold">
               <span class="h6 text-dark text-decoration-line-through me-3">
                 原價 {{ product.origin_price }} 元
               </span>
@@ -73,79 +72,77 @@
         </div>
         <!-- col-sm-6 end -->
       </div>
-      <div class="row mt-6 mt-lg-8">
-        <h2 class="h4" data-aos="fade-left" data-aos-duration="2000">相關商品</h2>
-        <div class="col" data-aos="fade-right" data-aos-duration="2200">
-          <swiper
-            :slidesPerView="1"
-            :spaceBetween="10"
-            :autoplay="{ delay: 2500, disableOnInteraction: false }"
-            :pagination="{
-              clickable: true
-            }"
-            :breakpoints="{
-              '640': {
-                slidesPerView: 1,
-                spaceBetween: 20
-              },
-              '768': {
-                slidesPerView: 2,
-                spaceBetween: 40
-              },
-              '1024': {
-                slidesPerView: 4,
-                spaceBetween: 50
-              }
-            }"
-            :modules="modules"
-            class="mySwiper"
+    </div>
+    <div class="container">
+      <h2 class="h4" data-aos="fade-left" data-aos-duration="2000">相關商品</h2>
+      <swiper
+        data-aos="fade-right"
+        data-aos-duration="2200"
+        :slidesPerView="1"
+        :spaceBetween="10"
+        :autoplay="{ delay: 2500, disableOnInteraction: false }"
+        :pagination="{
+          clickable: true
+        }"
+        :breakpoints="{
+          '640': {
+            slidesPerView: 1,
+            spaceBetween: 20
+          },
+          '768': {
+            slidesPerView: 2,
+            spaceBetween: 40
+          },
+          '1024': {
+            slidesPerView: 4,
+            spaceBetween: 50
+          }
+        }"
+        :modules="modules"
+        class="mySwiper"
+      >
+        <template v-for="item in swiperProducts" :key="item.id">
+          <swiper-slide
+            v-if="item.category === product.category"
+            class="pt-3 pb-5"
           >
-            <template v-for="item in swiperProducts" :key="item.id">
-              <swiper-slide v-if="item.category === product.category"
-                class="pt-3 pb-5"
+            <router-link
+              :to="`/products/${item.id}`"
+              class="card border-0 position-relative h-100 bg-light"
+            >
+              <img
+                :src="item.imageUrl"
+                style="height: 200px; object-fit: cover"
+                :alt="item.title"
+              />
+              <div class="position-absolute top-10 start-0">
+                <div class="card-title text-white bg-primary px-2 py-1">
+                  {{ item.category }}
+                </div>
+              </div>
+              <div
+                class="d-flex justify-content-between align-items-start mt-2"
               >
-                <router-link
-                  :to="`/products/${item.id}`"
-                  class="card border-0 position-relative h-100 bg-light"
+                <h3 class="h5 text-dark fw-bold mb-0">
+                  {{ item.title }}
+                </h3>
+                <span class="badge rounded-pill bg-info">{{ item.unit }}</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-end mt-0">
+                <span class="mb-0 text-decoration-line-through text-dark"
+                  >NT$ {{ item.origin_price }}</span
                 >
-                  <img
-                    :src="item.imageUrl"
-                    style="height: 200px; object-fit: cover"
-                    :alt="item.title"
-                  />
-                  <div class="position-absolute top-10 start-0">
-                    <div class="card-title text-white bg-primary px-2 py-1">
-                      {{ item.category }}
-                    </div>
-                  </div>
-                  <div
-                    class="d-flex justify-content-between align-items-start mt-2"
-                  >
-                    <h3 class="h5 text-dark fw-bold mb-0">
-                      {{ item.title }}
-                    </h3>
-                    <span class="badge rounded-pill bg-info">{{
-                      item.unit
-                    }}</span>
-                  </div>
-                  <div
-                    class="d-flex justify-content-between align-items-end mt-0"
-                  >
-                    <span class="mb-0 text-decoration-line-through text-dark"
-                      >NT$ {{item.origin_price}}</span
-                    >
-                    <span class="text-primary h5 mb-0">特價：NT$ {{item.price}}</span>
-                  </div>
-                </router-link>
-              </swiper-slide>
-            </template>
-          </swiper>
-        </div>
-      </div>
+                <span class="text-primary h5 mb-0"
+                  >特價：NT$ {{ item.price }}</span
+                >
+              </div>
+            </router-link>
+          </swiper-slide>
+        </template>
+      </swiper>
     </div>
   </div>
   <CouponModal ref="couponModal"></CouponModal>
-
 </template>
 
 <script>

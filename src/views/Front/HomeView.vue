@@ -65,13 +65,14 @@
         </p>
         <div class="row">
           <div class="col-6">
-            <router-link to="/products"
+            <router-link
+              to="/products"
               class="btn btn-outline-dark w-100"
               data-aos="fade-left"
               data-aos-duration="1300"
             >
               查看更多
-              </router-link>
+            </router-link>
           </div>
         </div>
       </div>
@@ -95,11 +96,13 @@
           <div class="row mb-3" data-aos="fade-right" data-aos-duration="1500">
             <div class="col-6">
               <router-link class="btn btn-primary w-100" to="/products"
-                  >立即購買</router-link
-                >
+                >立即購買</router-link
+              >
             </div>
             <div class="col-6">
-              <router-link to="/products" class="btn btn-outline-dark w-100">查看更多</router-link>
+              <router-link to="/products" class="btn btn-outline-dark w-100"
+                >查看更多</router-link
+              >
             </div>
           </div>
         </div>
@@ -137,9 +140,13 @@
     <h2 class="h4 text-center" data-aos="fade-left" data-aos-duration="1200">
       熱銷好評
     </h2>
-    <!-- Swiper -->
-    <div data-aos="fade-top" data-aos-duration="1500">
-      <SwiperProducts :products="products" filter-cate="肉類"></SwiperProducts>
+    <div class="row">
+      <div class="col" data-aos="fade-top" data-aos-duration="1500">
+        <SwiperProducts
+          :products="products"
+          filter-cate="肉類"
+        ></SwiperProducts>
+      </div>
     </div>
   </section>
 
@@ -157,7 +164,7 @@
           <router-link
             data-aos="fade-right"
             data-aos-duration="1500"
-            :to="{ path: '/products' }"
+            to="/products"
             class="d-flex justify-content-start align-items-center"
           >
             <img
@@ -172,7 +179,7 @@
           <router-link
             data-aos="fade-left"
             data-aos-duration="1800"
-            :to="{ path: '/products' }"
+            to="/products"
             class="d-flex justify-content-start align-items-center"
           >
             <p class="h5 me-3">甜蜜人生</p>
@@ -187,7 +194,7 @@
           <router-link
             data-aos="fade-right"
             data-aos-duration="1800"
-            :to="{ path: '/products' }"
+            to="/products"
             class="d-flex justify-content-start align-items-center"
           >
             <img
@@ -202,7 +209,7 @@
           <router-link
             data-aos="fade-left"
             data-aos-duration="1800"
-            :to="{ path: '/products' }"
+            to="/products"
             class="d-flex justify-content-start align-items-center"
           >
             <p class="h5 me-3">蔬食主義</p>
@@ -221,8 +228,13 @@
     <h2 class="h4 text-center" data-aos="fade-left" data-aos-duration="1200">
       店長推薦
     </h2>
-    <div data-aos="fade-top" data-aos-duration="1500">
-      <SwiperProducts :products="products" filter-cate="甜點"></SwiperProducts>
+    <div class="row">
+      <div class="col" data-aos="fade-top" data-aos-duration="1500">
+        <SwiperProducts
+          :products="products"
+          filter-cate="甜點"
+        ></SwiperProducts>
+      </div>
     </div>
   </section>
 </template>
@@ -257,7 +269,7 @@ export default {
         })
         .catch((error) => {
           this.isLoading = false
-          alert(error.data.message)
+          console.dir(error.data.message)
         })
     }
   },

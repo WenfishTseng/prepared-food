@@ -8,63 +8,63 @@
     </div>
   </Loading>
   <div class="container my-5 my-lg-6">
-    <div class="row row-cols-md-6 g-2 g-lg-3 d-none d-md-flex" data-aos="fade-top" data-aos-duration="1500">
-      <div class="category-hover col">
+    <div class="row row-cols-md-3 row-cols-lg-6 g-md-2 g-lg-3 d-none d-md-flex" data-aos="fade-top" data-aos-duration="1500">
+      <div class="category-hover col px-0">
         <div
           @click="getProducts"
-          class="d-flex align-items-center justify-content-around border-end border-2 border-light px-3"
+          class="d-flex align-items-center justify-content-around border-end border-2 border-light"
         >
           <img src="./../../assets/images/steak.png" width="50" height="50" />
-          <p class="ps-1 mb-0 fw-bold">全部</p>
+          <p class="mb-0 fw-bold">全部</p>
         </div>
       </div>
-      <div class="category-hover col">
+      <div class="category-hover col px-0">
         <div
           @click="renderProductsByCategory('肉類')"
-          class="d-flex align-items-center justify-content-around border-end border-2 border-light px-3"
+          class="d-flex align-items-center justify-content-around border-end border-2 border-light"
         >
           <img src="./../../assets/images/meat.png" width="50" height="50" />
-          <p class="ps-1 mb-0 fw-bold">肉類</p>
+          <p class="mb-0 fw-bold">肉類</p>
         </div>
       </div>
-      <div class="category-hover col">
+      <div class="category-hover col px-0">
         <div
           @click="renderProductsByCategory('湯品')"
-          class="d-flex align-items-center justify-content-around border-end border-2 border-light px-3"
+          class="d-flex align-items-center justify-content-around border-end border-2 border-light"
         >
           <img src="./../../assets/images/hot.png" width="50" height="50" />
-          <p class="ps-1 mb-0 fw-bold">湯品</p>
+          <p class="mb-0 fw-bold">湯品</p>
         </div>
       </div>
-      <div class="category-hover col">
+      <div class="category-hover col px-0">
         <div
           @click="renderProductsByCategory('飯類')"
-          class="d-flex align-items-center justify-content-around border-end border-2 border-light px-3"
+          class="d-flex align-items-center justify-content-around border-end border-2 border-light"
         >
           <img src="./../../assets/images/rice.png" width="50" height="50" />
-          <p class="ps-1 mb-0 fw-bold">飯類</p>
+          <p class="mb-0 fw-bold">飯類</p>
         </div>
       </div>
-      <div class="category-hover col">
+      <div class="category-hover col px-0">
         <div
           @click="renderProductsByCategory('麵類')"
-          class="d-flex align-items-center justify-content-around border-end border-2 border-light px-3"
+          class="d-flex align-items-center justify-content-around border-end border-2 border-light"
         >
           <img
             src="./../../assets/images/spaghetti.png"
             width="50"
             height="50"
           />
-          <p class="ps-1 mb-0 fw-bold">麵類</p>
+          <p class="mb-0 fw-bold">麵類</p>
         </div>
       </div>
-      <div class="category-hover col">
+      <div class="category-hover col px-0">
         <div
           @click="renderProductsByCategory('甜點')"
           class="d-flex align-items-center justify-content-around px-3"
         >
           <img src="./../../assets/images/lasagna.png" width="50" height="50" />
-          <p class="ps-1 mb-0 fw-bold">甜點</p>
+          <p class="mb-0 fw-bold">甜點</p>
         </div>
       </div>
     </div>
@@ -216,7 +216,7 @@ export default {
         })
         .catch((error) => {
           this.isLoading = false
-          alert(error.data.message)
+          console.dir(error.data.message)
         })
     },
     toggleFavorite (id) {
