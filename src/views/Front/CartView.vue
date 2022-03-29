@@ -118,7 +118,7 @@
       <div class="col-md-12 text-end">
         <p>
           應付金額
-          <span class="h4 fw-bold text-danger"> NT$ {{ cartData.total }}</span>
+          <span class="h4 fw-bold text-dark"> NT$ {{ cartData.total }}</span>
         </p>
       </div>
       <div class="col-12">
@@ -222,7 +222,7 @@ export default {
       this.$router.push('/order')
     }
   },
-  created () {
+  mounted () {
     this.getCarts()
   }
 }

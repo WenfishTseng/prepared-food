@@ -1,6 +1,6 @@
 <template>
   <!-- sticky-top -->
-  <div class="bg-primary text-light">
+  <div class="bg-primary text-light container-fluid">
     <ul
       class="list-unstyled d-flex justify-content-center align-content-center mb-0"
     >
@@ -16,10 +16,10 @@
     </ul>
   </div>
   <FrontNavbar></FrontNavbar>
-  <main>
+  <!-- <main> -->
     <router-view />
-  </main>
-  <footer class="container-fluid bg-dark text-light">
+  <!-- </main> -->
+  <footer class="bg-dark text-light">
     <div class="container py-5">
       <ul class="list-unstyled text-center">
         <li class="mb-3">

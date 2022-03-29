@@ -279,7 +279,7 @@ export default {
           this.$router.push('/result')
         })
         .catch((error) => {
-          console.dir(error)
+          alert(error)
         })
     },
     goBackPage () {
@@ -305,11 +305,10 @@ export default {
         })
         .catch((error) => {
           alert(error.response.data.message)
-          this.code = ''
         })
     }
   },
-  created () {
+  mounted () {
     this.getCarts()
   }
 }

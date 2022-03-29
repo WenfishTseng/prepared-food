@@ -73,7 +73,7 @@
         <!-- col-sm-6 end -->
       </div>
     </div>
-    <div class="container">
+    <div class="container pb-3 pb-lg-5">
       <h2 class="h4" data-aos="fade-left" data-aos-duration="2000">相關商品</h2>
       <swiper
         data-aos="fade-right"
@@ -169,7 +169,7 @@ export default {
   components: { CouponModal },
   watch: {
     $route (to) {
-      this.id = to.params.id
+      this.id = to.params?.id
       this.getProduct()
     }
   },
@@ -185,9 +185,7 @@ export default {
           this.product = response.data.product
           this.isLoading = false
         })
-        .catch((error) => {
-          alert(error.response.data.message)
-        })
+        .catch(() => {})
     },
     getProducts () {
       this.isLoading = true
@@ -222,10 +220,10 @@ export default {
   },
   created () {
     AOS.init({})
-    this.getProduct()
-    this.getProducts()
   },
   mounted () {
+    this.getProduct()
+    this.getProducts()
     this.$refs.couponModal.openModal()
   }
 }
