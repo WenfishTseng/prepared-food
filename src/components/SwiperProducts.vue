@@ -21,7 +21,7 @@
       }
     }"
     :modules="modules"
-    class="mySwiper"
+    class="swiper-container"
   >
     <template v-for="product in products" :key="product.id">
       <swiper-slide v-if="product.category === newCate" class="pt-3 pb-5">
