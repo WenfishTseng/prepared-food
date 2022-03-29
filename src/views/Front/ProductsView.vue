@@ -155,11 +155,20 @@
         </div>
       </div>
     </div>
+    <div class="row mt-3">
+      <div class="col-12">
+        <PaginationView
+          :pages="pagination"
+          @get-product="getProducts"
+        ></PaginationView>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import AOS from 'aos'
+import PaginationView from '@/components/PaginationView.vue'
 
 export default {
   name: 'Products',
@@ -170,19 +179,32 @@ export default {
       products: [],
       allProductsList: [],
       favoriteItem: JSON.parse(localStorage.getItem('favors')) || [],
-      inputKeyword: ''
+      inputKeyword: '',
+      // page
+      pagination: {}
     }
   },
-
+  components: { PaginationView },
   methods: {
+    getAllProdictsList () {
+      const apiUrl = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products/all`
+      this.$http
+        .get(apiUrl)
+        .then((response) => {
+          this.allProductsList = response.data.products
+        })
+        .catch((error) => {
+          alert(error.data.message)
+        })
+    },
     searchKeyword () {
       this.products = this.allProductsList.filter((item) => {
         return item.title.match(this.inputKeyword.trim())
       })
       this.inputKeyword = ''
     },
-    getProducts () {
-      this.renderProductsByCategory()
+    getProducts (page = 1) {
+      this.renderProductsByCategory('all', page)
     },
     addToCart (id, qty = 1) {
       this.isLoading = true
@@ -198,29 +220,27 @@ export default {
         })
         .catch((error) => {
           alert(error)
-          console.dir(error)
         })
     },
-    renderProductsByCategory (category) {
+    renderProductsByCategory (category, page = 1) {
       this.isLoading = true
-      let apiUrl = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products/all`
-      if (category) {
-        apiUrl = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products?category=${category}`
+      let apiUrl = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products?category=${category}`
+      if (category === 'all') {
+        apiUrl = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products/?page=${page}`
       }
       this.$http
         .get(apiUrl)
         .then((response) => {
-          this.allProductsList = response.data.products
           this.products = response.data.products
+          this.pagination = response.data.pagination
           this.isLoading = false
         })
         .catch((error) => {
           this.isLoading = false
-          console.dir(error.data.message)
+          alert(error.data.message)
         })
     },
     toggleFavorite (id) {
-      // console.log(id)
       const favorIndex = this.favoriteItem.findIndex((item) => item === id)
       if (favorIndex < 0) {
         this.favoriteItem.push(id)
@@ -238,8 +258,11 @@ export default {
     }
   },
   created () {
-    this.getProducts()
     AOS.init({})
+  },
+  mounted () {
+    this.getProducts()
+    this.getAllProdictsList()
   }
 }
 </script>
