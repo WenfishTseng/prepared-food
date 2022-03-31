@@ -177,7 +177,7 @@
 </template>
 
 <script>
-import Modal from 'bootstrap/js/dist/modal'
+import modalMixin from '@/mixins/modalMixin'
 
 export default {
   data () {
@@ -188,6 +188,7 @@ export default {
     }
   },
   // props: ['tempProduct', 'isNew'],
+  mixins: [modalMixin],
   props: {
     product: {
       type: Object
@@ -202,19 +203,19 @@ export default {
       this.isNew = this.stateNew
     }
   },
-  mounted () {
-    this.modal = new Modal(this.$refs.modal, {
-      keyboard: false,
-      backdrop: 'static'
-    })
-  },
+  // mounted () {
+  //   this.modal = new Modal(this.$refs.modal, {
+  //     keyboard: false,
+  //     backdrop: 'static'
+  //   })
+  // },
   methods: {
-    openModal () {
-      this.modal.show()
-    },
-    hideModal () {
-      this.modal.hide()
-    },
+    // openModal () {
+    //   this.modal.show()
+    // },
+    // hideModal () {
+    //   this.modal.hide()
+    // },
     editProduct () {
       let url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/product/${this.tempProduct.id}`
       let method = 'put'
