@@ -15,9 +15,9 @@
       </li>
     </ul>
   </div>
-  <FrontNavbar></FrontNavbar>
+  <FrontNavbar/>
   <main>
-    <router-view />
+    <RouterView/>
   </main>
   <footer class="container-fluid bg-dark text-light">
     <div class="container py-5">

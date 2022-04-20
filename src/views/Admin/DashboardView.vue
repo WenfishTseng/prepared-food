@@ -40,7 +40,7 @@
     </div>
   </nav>
   <CheckModal @logout="logoutDashboard"></CheckModal>
-  <router-view v-if="checkLogin" />
+  <RouterView v-if="checkLogin" />
 
 </template>
 
