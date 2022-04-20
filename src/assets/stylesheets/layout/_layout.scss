@@ -23,7 +23,6 @@
   img {
     max-height: 100%;
     object-fit: cover;
-
   }
 }
 
@@ -32,9 +31,9 @@
   width: 200px;
   object-fit: cover;
   &:hover {
-  text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.1);
-  box-shadow:  1px 1px 1px rgba(0, 0, 0, 0.1);
-  transition: 0.3s;
+    text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
   }
 }
 
@@ -47,7 +46,7 @@
 }
 
 .start-30 {
-  left: 30%; 
+  left: 30%;
 }
 
 .end-10 {
@@ -73,4 +72,10 @@
   &:hover {
     background-color: $light;
   }
+}
+
+.table-image {
+  height: 100px;
+  background-size: cover;
+  background-position: center;
 }
