@@ -173,7 +173,7 @@ export default {
           this.isLoading = false
         })
         .catch((error) => {
-          alert(error)
+          alert(error.response.data.message)
         })
     },
     updateCart (item) {
@@ -188,7 +188,7 @@ export default {
           this.isCartLoadingItem = ''
         })
         .catch((error) => {
-          alert(error)
+          alert(error.response.data.message)
         })
     },
     removeCartItem (id) {
@@ -200,7 +200,7 @@ export default {
           this.getCarts()
         })
         .catch((error) => {
-          alert(error.data.message)
+          alert(error.response.data.message)
         })
     },
     removeAllCarts () {
@@ -212,7 +212,7 @@ export default {
           this.getCarts()
         })
         .catch((error) => {
-          alert(error.data.message)
+          alert(error.response.data.message)
         })
     },
     goProductsPage () {

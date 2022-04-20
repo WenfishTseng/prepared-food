@@ -197,8 +197,7 @@ export default {
           alert(response.data.message)
         })
         .catch((error) => {
-          alert(error)
-          console.dir(error)
+          alert(error.response.data.message)
         })
     },
     renderProductsByCategory (category) {
