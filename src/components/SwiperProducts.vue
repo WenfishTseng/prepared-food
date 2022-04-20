@@ -32,7 +32,7 @@
           <img
             :src="product.imageUrl"
             style="height: 200px; object-fit: cover"
-            :alt="product.title"
+            alt="product"
           />
           <div class="position-absolute top-10 start-0">
             <div class="card-title text-white bg-primary px-2 py-1">

@@ -20,7 +20,7 @@
                     v-model="tempProduct.imageUrl"
                   />
                 </div>
-                <img class="img-fluid" :src="tempProduct.imageUrl" />
+                <img class="img-fluid" alt="product" :src="tempProduct.imageUrl" />
               </div>
 
               <h5>多圖上傳</h5>
@@ -35,7 +35,7 @@
                     placeholder="請輸入圖片連結"
                     v-model="tempProduct.imagesUrl[key]"
                   />
-                  <img class="img-fluid mb-2" :src="img" v-if="img" />
+                  <img class="img-fluid mb-2" alt="product" :src="img" v-if="img" />
                 </template>
                 <button
                   v-if="

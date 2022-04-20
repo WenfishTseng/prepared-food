@@ -16,7 +16,7 @@
             <img
               class="img-fluid rounded-1"
               :src="product.imageUrl"
-              :alt="product.title"
+              alt="title"
             />
           </div>
         </div>
@@ -113,7 +113,7 @@
               <img
                 :src="item.imageUrl"
                 style="height: 200px; object-fit: cover"
-                :alt="item.title"
+                alt="product"
               />
               <div class="position-absolute top-10 start-0">
                 <div class="card-title text-white bg-primary px-2 py-1">

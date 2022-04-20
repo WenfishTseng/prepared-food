@@ -31,7 +31,7 @@
         <p>待我們確認訂單後，即刻會為您出貨</p>
       </div>
       <div class="col-md-6">
-        <img class="img-fluid" src="./../../assets/images/order-confirmed.svg" alt="">
+        <img class="img-fluid" src="./../../assets/images/order-confirmed.svg" alt="success">
       </div>
     </div>
 

@@ -10,7 +10,7 @@
           ></button>
         </div>
         <div class="modal-body">
-          <img class="position-relative img-fluid" src="./../assets/images/coupon3.svg" />
+          <img class="position-relative img-fluid" alt="coupon" src="./../assets/images/coupon3.svg" />
           <div
             class="h2 mb-0 position-absolute top-40 start-30 translate-middle"
           >

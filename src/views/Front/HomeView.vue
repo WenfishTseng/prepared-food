@@ -115,7 +115,7 @@
             <img
               class="w-100"
               src="https://images.unsplash.com/photo-1593351372318-5129f1fc04f9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=380&q=80"
-              alt=""
+              alt="product"
             />
           </div>
         </div>
@@ -128,7 +128,7 @@
             <img
               class="w-100"
               src="https://images.unsplash.com/photo-1576097449798-7c7f90e1248a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=380&q=80"
-              alt=""
+              alt="product"
             />
           </div>
         </div>
@@ -170,7 +170,7 @@
             <img
               class="circle-card rounded-circle"
               src="https://images.unsplash.com/photo-1577303935007-0d306ee638cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1140&q=80"
-              alt=""
+              alt="product"
             />
             <p class="h5 ms-3">無肉不歡</p>
           </router-link>
@@ -186,7 +186,7 @@
             <img
               class="circle-card rounded-circle"
               src="https://images.unsplash.com/photo-1602296751259-edfb8274b682?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-              alt=""
+              alt="product"
             />
           </router-link>
         </div>
@@ -200,7 +200,7 @@
             <img
               class="circle-card rounded-circle"
               src="https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-              alt=""
+              alt="product"
             />
             <p class="h5 ms-3">輕食慢活</p>
           </router-link>
@@ -216,7 +216,7 @@
             <img
               class="circle-card rounded-circle"
               src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-              alt=""
+              alt="product"
             />
           </router-link>
         </div>

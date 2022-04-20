@@ -71,6 +71,7 @@
 .category-hover {
   &:hover {
     background-color: $light;
+    cursor: pointer; 
   }
 }
 
