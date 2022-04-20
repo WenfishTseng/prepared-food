@@ -55,12 +55,7 @@
             <template v-if="cartData.carts">
               <tr v-for="item in cartData.carts" :key="item.id">
                 <td>
-                  <div
-                    style="
-                      height: 100px;
-                      background-size: cover;
-                      background-position: center;
-                    "
+                  <div class="table-image"
                     :style="{
                       backgroundImage: `url(${item.product.imageUrl})`
                     }"
@@ -150,8 +145,6 @@
 
 <script>
 import emitter from '@/libs/emitter.js'
-import Loading from 'vue-loading-overlay'
-import 'vue-loading-overlay/dist/vue-loading.css'
 
 export default {
   data () {
@@ -161,7 +154,6 @@ export default {
       isLoading: false
     }
   },
-  components: { Loading },
   methods: {
     getCarts () {
       this.isLoading = true
