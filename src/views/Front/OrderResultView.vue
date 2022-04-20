@@ -1,12 +1,4 @@
 <template>
-  <Loading v-model:active="isLoading">
-    <div class="text-center">
-      <div class="fa-3x text-primary">
-        <i class="fa-solid fa-champagne-glasses fa-bounce"></i>
-      </div>
-      <div class="text-primary">Loading</div>
-    </div>
-  </Loading>
   <div class="container my-5 my-lg-6">
     <div class="row row-cols-1 row-cols-lg-4 g-3 align-items-center">
       <div
