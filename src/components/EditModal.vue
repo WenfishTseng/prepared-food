@@ -203,19 +203,7 @@ export default {
       this.isNew = this.stateNew
     }
   },
-  // mounted () {
-  //   this.modal = new Modal(this.$refs.modal, {
-  //     keyboard: false,
-  //     backdrop: 'static'
-  //   })
-  // },
   methods: {
-    // openModal () {
-    //   this.modal.show()
-    // },
-    // hideModal () {
-    //   this.modal.hide()
-    // },
     editProduct () {
       let url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/product/${this.tempProduct.id}`
       let method = 'put'
@@ -232,7 +220,7 @@ export default {
         })
         .catch((error) => {
           alert(error.response.data.message)
-          this.hideModal()
+          // this.hideModal()
         })
     },
     closeProductModal () {

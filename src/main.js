@@ -44,7 +44,6 @@ configure({
 })
 // 設定預設語系
 setLocale('zh_TW')
-// const app = createApp(App).use(router)
 const app = createApp(App).use(router)
 app.use(VueAxios, axios)
 app.config.globalProperties.$filters = { date }
@@ -56,4 +55,3 @@ app.component('ErrorMessage', ErrorMessage)
 app.component('Swiper', Swiper)
 app.component('SwiperSlide', SwiperSlide)
 app.mount('#app')
-// new WOW({ live: false }).init()

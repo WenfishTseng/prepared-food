@@ -153,7 +153,6 @@ export default {
       }
     }
   },
-  // props: ['tempProduct', 'isNew'],
   props: {
     product: {
       type: Object
@@ -190,7 +189,7 @@ export default {
         })
         .catch((error) => {
           alert(error.response.data.message)
-          this.hideModal()
+          // this.hideModal()
         })
     },
     closeModal () {
