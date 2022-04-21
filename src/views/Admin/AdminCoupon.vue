@@ -31,7 +31,7 @@
               class="form-control"
               placeholder="EX. 90"
               id="couponDiscountInput"
-              v-model="coupon.percent"
+              v-model.number="coupon.percent"
             />
           </div>
           <div class="mb-3">
@@ -46,16 +46,15 @@
           <div class="mb-3 form-check">
             <input
               type="checkbox"
-              :true-value="parseInt(1)"
-              :false-value="parseInt(0)"
               class="form-check-input"
-              id="useCheck"
               v-model="coupon.is_enabled"
+              true-value="1"
+              false-value="0"
+              id="useCheck"
             />
             <label class="form-check-label" for="useCheck">開始使用</label>
           </div>
           <button type="submit" class="btn btn-primary me-3">確認</button>
-          <button type="button" class="btn btn-outline-info">清除</button>
         </form>
       </div>
       <div class="offset-lg-1 col-lg-6">
@@ -64,7 +63,7 @@
             <div class="card text-center">
               <div class="card-header">
                 {{ item.title }}
-                <span class="text-success" v-if="true"
+                <span class="text-success" v-if="item.is_enabled"
                   ><i class="bi bi-check-circle-fill me-1"></i>啟用</span
                 >
                 <span class="text-danger" v-else
@@ -74,39 +73,32 @@
               <div class="card-body">
                 <h5 class="card-title">{{ item.percent }} %</h5>
                 <p class="card-text h4 my-3">{{ item.code }}</p>
+                <button
+                  type="button"
+                  class="btn btn-outline-danger"
+                  @click="deleteCoupon(item.id)"
+                >
+                  刪除
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- <div class="row mt-3 mt-lg-5">
-      <div class="col-12">
-        <PaginationView
-          :pages="pagination"
-          @get-product="getData"
-        ></PaginationView>
-      </div>
-    </div> -->
   </div>
 </template>
 
 <script>
-// import PaginationView from '@/components/PaginationView.vue'
-
 export default {
   data () {
     return {
       coupons: [],
-      coupon: {},
-      tempCoupon: {},
-      // page
-      pagination: {}
+      coupon: {
+        is_enabled: 0
+      },
+      tempCoupon: {}
     }
-  },
-  // components: { PaginationView },
-  mounted () {
-    this.getCouponsData()
   },
   methods: {
     getCouponsData () {
@@ -116,37 +108,54 @@ export default {
         )
         .then((response) => {
           if (response.data.success) {
-            console.log(response.data.coupons)
             this.coupons = response.data.coupons
             // this.coupon.due_date = Math.floor(new Date(this.coupon.due_date) / 1000)
           }
         })
         .catch((error) => {
-          console.dir(error)
+          alert(error.response.data.message)
+        })
+    },
+    deleteCoupon (pid) {
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/coupon/${pid}`
+      this.$http
+        .delete(url)
+        .then((response) => {
+          this.getCouponsData()
+          alert(response.data.message)
+        })
+        .catch((error) => {
+          alert(error.response.data.message)
         })
     },
     onSubmit () {
+      this.coupon.is_enabled = parseInt(this.coupon.is_enabled)
       this.coupon.due_date = Math.floor(new Date(this.coupon.due_date) / 1000)
-      this.$http
-        .post(
-          `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/coupon`,
-          {
-            data: this.coupon
-          }
-        )
-        .then((response) => {
-          if (response.data.success) {
-            alert(response.data.message)
-            this.coupon = {}
-            this.getCouponsData()
-          }
-        })
-        .catch((error) => {
-          console.dir(error)
-        })
+      if (parseInt(this.coupon.percent) > 0) {
+        this.$http
+          .post(
+            `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/coupon`,
+            {
+              data: this.coupon
+            }
+          )
+          .then((response) => {
+            console.dir(response)
+            if (response.data.success) {
+              alert(response.data.message)
+              this.coupon = {}
+              this.getCouponsData()
+            }
+          })
+          .catch((error) => {
+            alert(error.response.data.message)
+          })
+      } else {
+        alert('請輸入正確趴數')
+      }
     }
   },
-  created () {
+  mounted () {
     this.getCouponsData()
   }
 }
