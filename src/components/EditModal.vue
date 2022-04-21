@@ -20,7 +20,11 @@
                     v-model="tempProduct.imageUrl"
                   />
                 </div>
-                <img class="img-fluid" alt="product" :src="tempProduct.imageUrl" />
+                <img
+                  class="img-fluid"
+                  alt="product"
+                  :src="tempProduct.imageUrl"
+                />
               </div>
 
               <h5>多圖上傳</h5>
@@ -35,9 +39,15 @@
                     placeholder="請輸入圖片連結"
                     v-model="tempProduct.imagesUrl[key]"
                   />
-                  <img class="img-fluid mb-2" alt="product" :src="img" v-if="img" />
+                  <img
+                    class="img-fluid mb-2"
+                    alt="product"
+                    :src="img"
+                    v-if="img"
+                  />
                 </template>
                 <button
+                  type="button"
                   v-if="
                     !tempProduct.imagesUrl.length ||
                     tempProduct.imagesUrl[tempProduct.imagesUrl.length - 1]
@@ -48,6 +58,7 @@
                   新增圖片
                 </button>
                 <button
+                  type="button"
                   @click="tempProduct.imagesUrl.pop()"
                   class="btn btn-outline-danger btn-sm d-block w-100 my-3"
                 >
