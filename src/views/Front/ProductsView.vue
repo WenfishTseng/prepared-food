@@ -211,7 +211,6 @@ export default {
       inputKeyword: ''
     }
   },
-
   methods: {
     searchKeyword () {
       this.products = this.allProductsList.filter((item) => {
@@ -275,8 +274,8 @@ export default {
     }
   },
   created () {
-    this.getProducts()
     AOS.init({})
+    this.getProducts()
   }
 }
 </script>

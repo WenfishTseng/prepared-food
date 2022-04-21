@@ -37,21 +37,11 @@
             </div>
           </div>
           <p>{{ product.description }}</p>
-          <p class="mb-0">
-            <a
-              class="btn btn-link px-0 mb-0"
-              data-bs-toggle="collapse"
-              href="#collapseExample"
-            >
-              詳細資訊
-            </a>
-          </p>
-          <div class="collapse" id="collapseExample">
-            <div class="card card-body border-0 px-0 bg-light">
-              {{ product.content }}
-            </div>
+          <p class="mb-0">詳細資訊：</p>
+          <div class="card card-body border-0 px-0 bg-light">
+            {{ product.content }}
           </div>
-          <div class="my-3">
+          <div class="mb-3">
             <div class="input-group">
               <input
                 type="number"
@@ -72,7 +62,7 @@
         <!-- col-sm-6 end -->
       </div>
     </div>
-    <div class="container">
+    <div class="container pb-3 pb-lg-5">
       <h2 class="h4" data-aos="fade-left" data-aos-duration="2000">相關商品</h2>
       <swiper
         data-aos="fade-right"
@@ -184,9 +174,6 @@ export default {
           this.product = response.data.product
           this.isLoading = false
         })
-        .catch((error) => {
-          alert(error.response.data.message)
-        })
     },
     getProducts () {
       this.isLoading = true
@@ -219,12 +206,10 @@ export default {
         })
     }
   },
-  created () {
+  mounted () {
     AOS.init({})
     this.getProduct()
     this.getProducts()
-  },
-  mounted () {
     this.$refs.couponModal.openModal()
   }
 }
