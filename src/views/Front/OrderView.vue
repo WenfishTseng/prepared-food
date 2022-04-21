@@ -24,7 +24,6 @@
         <p class="mb-0 px-3 py-4 h5">3. 完成購物</p>
       </div>
     </div>
-
     <div class="row">
       <div class="col-12">
         <table class="table align-middle mt-3">
@@ -73,14 +72,18 @@
         </table>
       </div>
     </div>
-
     <div class="row my-1">
       <div class="col-md-6">
         <p class="text-primary fw-bold">試營運20日天天免運</p>
       </div>
       <div class="offset-lg-3 col-lg-3">
         <div class="input-group mb-3">
-          <input type="text" v-model="code" class="form-control" placeholder="優惠碼" />
+          <input
+            type="text"
+            v-model="code"
+            class="form-control"
+            placeholder="優惠碼"
+          />
           <button
             class="btn btn-outline-secondary"
             type="button"
@@ -93,21 +96,19 @@
       </div>
       <div class="col-12 my-1" v-if="cartData.total === cartData.final_total">
         <p class="text-end mb-0">
-            金額
-            <span class="h5 fw-bold">
-              NT$ {{ cartData.total }}</span
-            >
-          </p>
+          金額
+          <span class="h5 fw-bold"> NT$ {{ cartData.total }}</span>
+        </p>
       </div>
       <div class="col-12 my-2" v-else>
         <p class="text-end mb-0 text-decoration-line-through">
-            原始金額
-            <span class="h5">
-              NT$ {{ cartData.total }}</span
-            >
-          </p>
+          原始金額
+          <span class="h5"> NT$ {{ cartData.total }}</span>
+        </p>
         <p class="text-end">
-          <span class="alert alert-primary py-1 me-1" v-if="successCode">已套用優惠碼: {{successCode}}</span>
+          <span class="alert alert-primary py-1 me-1" v-if="successCode"
+            >已套用優惠碼: {{ successCode }}</span
+          >
           折扣後金額
           <span class="h4 fw-bold text-danger ms-1 ms-lg-2">
             NT$ {{ Math.round(cartData.final_total) }}</span
@@ -115,7 +116,6 @@
         </p>
       </div>
     </div>
-
     <Form
       v-slot="{ errors }"
       ref="form"
@@ -136,9 +136,8 @@
             rules="email|required"
             v-model="form.user.email"
           />
-          <ErrorMessage name="email" class="invalid-feedback"/>
+          <ErrorMessage name="email" class="invalid-feedback" />
         </div>
-
         <div class="mb-3">
           <label for="name" class="form-label">收件人姓名</label>
           <Field
@@ -153,7 +152,6 @@
           />
           <ErrorMessage name="姓名" class="invalid-feedback" />
         </div>
-
         <div class="mb-3">
           <label for="tel" class="form-label">收件人手機號碼</label>
           <Field
@@ -168,7 +166,6 @@
           />
           <ErrorMessage name="電話" class="invalid-feedback" />
         </div>
-
         <div class="mb-3">
           <label for="address" class="form-label">收件人地址</label>
           <Field
@@ -183,7 +180,6 @@
           />
           <ErrorMessage name="地址" class="invalid-feedback" />
         </div>
-
         <div class="mb-3">
           <label for="message" class="form-label">留言</label>
           <textarea
@@ -295,7 +291,9 @@ export default {
         .then((response) => {
           if (response.data.success) {
             alert(response.data.message)
-            this.cartData.final_total = Math.round(response.data.data.final_total)
+            this.cartData.final_total = Math.round(
+              response.data.data.final_total
+            )
             this.successCode = this.code
             this.code = ''
           }

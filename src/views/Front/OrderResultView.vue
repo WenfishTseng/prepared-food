@@ -16,7 +16,6 @@
         <p class="mb-0 px-3 py-4 h5">3. 完成購物</p>
       </div>
     </div>
-
     <div class="row justify-content-around align-items-center my-5">
       <div class="col-md-6 text-center">
         <p class="h3">謝謝您的訂購~~</p>
@@ -26,7 +25,6 @@
         <img class="img-fluid" src="./../../assets/images/order-confirmed.svg" alt="success">
       </div>
     </div>
-
   </div>
 </template>
 

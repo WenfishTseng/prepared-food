@@ -7,7 +7,6 @@
       <div class="text-primary">Loading</div>
     </div>
   </Loading>
-
   <div class="container-fluid bg-light">
     <div class="container py-6 py-lg-8">
       <div class="row justify-content-center">

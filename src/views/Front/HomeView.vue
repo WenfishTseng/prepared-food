@@ -1,13 +1,4 @@
 <template>
-  <!-- <Loading v-model:active="isLoading">
-    <div class="text-center">
-      <div class="fa-3x text-primary">
-        <i class="fa-solid fa-champagne-glasses fa-bounce"></i>
-      </div>
-      <div class="text-primary">Loading</div>
-    </div>
-  </Loading> -->
-
   <section class="hero">
     <div class="container">
       <div class="row">

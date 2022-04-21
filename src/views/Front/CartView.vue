@@ -24,7 +24,6 @@
         <p class="mb-0 px-3 py-4 h5">3. 完成購物</p>
       </div>
     </div>
-
     <div class="row my-3">
       <div class="col-12 text-end">
         <button
@@ -105,7 +104,6 @@
         </table>
       </div>
     </div>
-
     <div class="row mb-3">
       <div class="col-6">
         <p class="text-primary fw-bold">試營運20日天天免運</p>
