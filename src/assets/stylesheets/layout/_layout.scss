@@ -1,4 +1,8 @@
 //首頁banner
+body {
+  overflow-x:hidden; 
+}
+
 .hero {
   display: flex;
   justify-content: center;
