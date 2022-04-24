@@ -222,8 +222,9 @@ export default {
       pagination: {}
     }
   },
+  components: { PaginationView },
   methods: {
-    getAllProdictsList () {
+    getAllProductsList () {
       const apiUrl = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products/all`
       this.$http
         .get(apiUrl)
@@ -297,6 +298,7 @@ export default {
   created () {
     AOS.init({})
     this.getProducts()
+    this.getAllProductsList()
   }
 }
 </script>

@@ -12,11 +12,7 @@
               加熱煮藝
             </h1>
             <h2
-<<<<<<< HEAD
-              class="h5 mb-6 fw-bold logo text-dark text-nowrap text-shadow fst-italic"
-=======
               class="h5 mb-6 fw-bold text-nowrap logo text-dark fst-italic"
->>>>>>> dev
               data-aos="fade-left"
               data-aos-duration="1300"
             >
