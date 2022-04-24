@@ -12,7 +12,11 @@
               加熱煮藝
             </h1>
             <h2
+<<<<<<< HEAD
               class="h5 mb-6 fw-bold logo text-dark text-nowrap text-shadow fst-italic"
+=======
+              class="h5 mb-6 fw-bold text-nowrap logo text-dark fst-italic"
+>>>>>>> dev
               data-aos="fade-left"
               data-aos-duration="1300"
             >
@@ -85,14 +89,9 @@
             雙手奉上每份即時料理，在家簡單加熱，就可以與家人、朋友享用我們用心提供的美味餐點，我們堅持分享好的食材，輕鬆的加熱方式，在家也能愜意的擁抱重要的每個時刻。
           </p>
           <div class="row mb-3" data-aos="fade-right" data-aos-duration="1500">
-            <div class="col-6">
+            <div class="offset-6 col-6 text-end">
               <router-link class="btn btn-primary w-100" to="/products"
                 >立即購買</router-link
-              >
-            </div>
-            <div class="col-6">
-              <router-link to="/products" class="btn btn-outline-dark w-100"
-                >查看更多</router-link
               >
             </div>
           </div>
@@ -106,7 +105,7 @@
             <img
               class="w-100"
               src="https://images.unsplash.com/photo-1593351372318-5129f1fc04f9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=380&q=80"
-              alt=""
+              alt="product"
             />
           </div>
         </div>
@@ -119,7 +118,7 @@
             <img
               class="w-100"
               src="https://images.unsplash.com/photo-1576097449798-7c7f90e1248a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=380&q=80"
-              alt=""
+              alt="product"
             />
           </div>
         </div>
@@ -145,75 +144,64 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8">
-          <h3
-            class="text-center mb-3 mb-md-5"
+          <router-link
+            class="text-center mb-3 mb-md-5 d-flex justify-content-start align-items-center"
             data-aos="fade-right"
-            data-aos-duration="1300"
+            data-aos-duration="1500"
+            to="/products"
           >
-            請問你是哪一派？
-          </h3>
-          <div class="row">
-            <div class="col-md-6 mb-md-5">
-              <router-link
-                data-aos="fade-right"
-                data-aos-duration="1500"
-                to="/products"
-                class="d-flex justify-content-center justify-content-md-start align-items-center"
-              >
-                <img
-                  class="circle-card rounded-circle"
-                  src="https://images.unsplash.com/photo-1577303935007-0d306ee638cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1140&q=80"
-                  alt=""
-                />
-                <p class="h5 ms-1">無肉不歡</p>
-              </router-link>
-            </div>
-            <div class="col-md-6 offset-lg-1 col-lg-5 mb-md-5">
-              <router-link
-                data-aos="fade-left"
-                data-aos-duration="1800"
-                to="/products"
-                class="d-flex justify-content-center justify-content-md-start align-items-center"
-              >
-                <p class="h5 me-1">甜蜜人生</p>
-                <img
-                  class="circle-card rounded-circle"
-                  src="https://images.unsplash.com/photo-1602296751259-edfb8274b682?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                  alt=""
-                />
-              </router-link>
-            </div>
-            <div class="col-md-6 mb-md-5">
-              <router-link
-                data-aos="fade-right"
-                data-aos-duration="1600"
-                to="/products"
-                class="d-flex justify-content-center justify-content-md-start align-items-center"
-              >
-                <img
-                  class="circle-card rounded-circle"
-                  src="https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                  alt=""
-                />
-                <p class="h5 ms-1">輕食慢活</p>
-              </router-link>
-            </div>
-            <div class="col-md-6 offset-lg-1 col-lg-5">
-              <router-link
-                data-aos="fade-left"
-                data-aos-duration="1600"
-                to="/products"
-                class="d-flex justify-content-center justify-content-md-start align-items-center"
-              >
-                <p class="h5 me-1">蔬食主義</p>
-                <img
-                  class="circle-card rounded-circle"
-                  src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                  alt=""
-                />
-              </router-link>
-            </div>
-          </div>
+            <img
+              class="circle-card rounded-circle"
+              src="https://images.unsplash.com/photo-1577303935007-0d306ee638cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1140&q=80"
+              alt="product"
+            />
+            <p class="h5 ms-3">無肉不歡</p>
+          </router-link>
+        </div>
+        <div class="col-lg-4 offset-lg-1 mb-lg-5">
+          <router-link
+            data-aos="fade-left"
+            data-aos-duration="1800"
+            to="/products"
+            class="d-flex justify-content-start align-items-center"
+          >
+            <p class="h5 me-3">甜蜜人生</p>
+            <img
+              class="circle-card rounded-circle"
+              src="https://images.unsplash.com/photo-1602296751259-edfb8274b682?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+              alt="product"
+            />
+          </router-link>
+        </div>
+        <div class="col-lg-4 offset-lg-2 mb-lg-5">
+          <router-link
+            data-aos="fade-right"
+            data-aos-duration="1800"
+            to="/products"
+            class="d-flex justify-content-start align-items-center"
+          >
+            <img
+              class="circle-card rounded-circle"
+              src="https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+              alt="product"
+            />
+            <p class="h5 ms-3">輕食慢活</p>
+          </router-link>
+        </div>
+        <div class="col-lg-4 offset-lg-1">
+          <router-link
+            data-aos="fade-left"
+            data-aos-duration="1800"
+            to="/products"
+            class="d-flex justify-content-start align-items-center"
+          >
+            <p class="h5 me-3">蔬食主義</p>
+            <img
+              class="circle-card rounded-circle"
+              src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+              alt="product"
+            />
+          </router-link>
         </div>
       </div>
     </div>

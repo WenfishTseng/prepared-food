@@ -3,7 +3,7 @@
     <div class="row justify-content-lg-center">
       <div class="col-lg-12">
         <div class="text-end mt-4">
-          <button class="btn btn-primary" @click="openProductModal('add', '')">
+          <button type="button" class="btn btn-primary" @click="openProductModal('add', '')">
             建立新的產品
           </button>
         </div>

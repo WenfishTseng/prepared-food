@@ -7,7 +7,6 @@
       <div class="text-primary">Loading</div>
     </div>
   </Loading>
-
   <div class="container-fluid bg-light">
     <div class="container py-6 py-lg-8">
       <div class="row justify-content-center">
@@ -16,7 +15,7 @@
             <img
               class="img-fluid rounded-1"
               :src="product.imageUrl"
-              :alt="product.title"
+              alt="title"
             />
           </div>
         </div>
@@ -31,28 +30,18 @@
           </div>
           <div v-else>
             <div class="h5 text-danger fw-bold">
-              <span class="h6 text-dark text-decoration-line-through me-3">
+              <span class="h6 text-dark text-decoration-line-through opacity-75 me-3">
                 原價 {{ product.origin_price }} 元
               </span>
               現在只要 {{ product.price }} 元
             </div>
           </div>
           <p>{{ product.description }}</p>
-          <p class="mb-0">
-            <a
-              class="btn btn-link px-0 mb-0"
-              data-bs-toggle="collapse"
-              href="#collapseExample"
-            >
-              詳細資訊
-            </a>
-          </p>
-          <div class="collapse" id="collapseExample">
-            <div class="card card-body border-0 px-0 bg-light">
-              {{ product.content }}
-            </div>
+          <p class="mb-0">詳細資訊：</p>
+          <div class="card card-body border-0 px-0 bg-light">
+            {{ product.content }}
           </div>
-          <div class="my-3">
+          <div class="mb-3">
             <div class="input-group">
               <input
                 type="number"
@@ -113,7 +102,7 @@
               <img
                 :src="item.imageUrl"
                 style="height: 200px; object-fit: cover"
-                :alt="item.title"
+                alt="product"
               />
               <div class="position-absolute top-10 start-0">
                 <div class="card-title text-white bg-primary px-2 py-1">
@@ -185,7 +174,6 @@ export default {
           this.product = response.data.product
           this.isLoading = false
         })
-        .catch(() => {})
     },
     getProducts () {
       this.isLoading = true
@@ -218,10 +206,8 @@ export default {
         })
     }
   },
-  created () {
-    AOS.init({})
-  },
   mounted () {
+    AOS.init({})
     this.getProduct()
     this.getProducts()
     this.$refs.couponModal.openModal()

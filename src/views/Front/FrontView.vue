@@ -15,11 +15,11 @@
       </li>
     </ul>
   </div>
-  <FrontNavbar></FrontNavbar>
-  <!-- <main> -->
-    <router-view />
-  <!-- </main> -->
-  <footer class="bg-dark text-light">
+  <FrontNavbar/>
+  <main>
+    <RouterView/>
+  </main>
+  <footer class="container-fluid bg-dark text-light">
     <div class="container py-5">
       <ul class="list-unstyled text-center">
         <li class="mb-3">

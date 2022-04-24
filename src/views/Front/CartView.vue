@@ -24,7 +24,6 @@
         <p class="mb-0 px-3 py-4 h5">3. 完成購物</p>
       </div>
     </div>
-
     <div class="row my-3">
       <div class="col-12 text-end">
         <button
@@ -55,12 +54,7 @@
             <template v-if="cartData.carts">
               <tr v-for="item in cartData.carts" :key="item.id">
                 <td>
-                  <div
-                    style="
-                      height: 100px;
-                      background-size: cover;
-                      background-position: center;
-                    "
+                  <div class="table-image"
                     :style="{
                       backgroundImage: `url(${item.product.imageUrl})`
                     }"
@@ -110,7 +104,6 @@
         </table>
       </div>
     </div>
-
     <div class="row mb-3">
       <div class="col-6">
         <p class="text-primary fw-bold">試營運20日天天免運</p>
@@ -150,8 +143,6 @@
 
 <script>
 import emitter from '@/libs/emitter.js'
-import Loading from 'vue-loading-overlay'
-import 'vue-loading-overlay/dist/vue-loading.css'
 
 export default {
   data () {
@@ -161,7 +152,6 @@ export default {
       isLoading: false
     }
   },
-  components: { Loading },
   methods: {
     getCarts () {
       this.isLoading = true
@@ -173,7 +163,7 @@ export default {
           this.isLoading = false
         })
         .catch((error) => {
-          alert(error)
+          alert(error.response.data.message)
         })
     },
     updateCart (item) {
@@ -188,7 +178,7 @@ export default {
           this.isCartLoadingItem = ''
         })
         .catch((error) => {
-          alert(error)
+          alert(error.response.data.message)
         })
     },
     removeCartItem (id) {
@@ -200,7 +190,7 @@ export default {
           this.getCarts()
         })
         .catch((error) => {
-          alert(error.data.message)
+          alert(error.response.data.message)
         })
     },
     removeAllCarts () {
@@ -212,7 +202,7 @@ export default {
           this.getCarts()
         })
         .catch((error) => {
-          alert(error.data.message)
+          alert(error.response.data.message)
         })
     },
     goProductsPage () {

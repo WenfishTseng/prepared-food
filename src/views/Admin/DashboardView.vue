@@ -25,7 +25,7 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/admin/coupon">優惠券列表</router-link>
           </li>
-          <!-- <li class="nav-item">
+          <li class="nav-item">
             <a
               type="button"
               class="nav-link"
@@ -34,13 +34,13 @@
             >
               登出
             </a>
-          </li> -->
+          </li>
         </ul>
       </div>
     </div>
   </nav>
   <CheckModal @logout="logoutDashboard"></CheckModal>
-  <router-view v-if="checkLogin" />
+  <RouterView v-if="checkLogin" />
 
 </template>
 
@@ -86,16 +86,11 @@ export default {
       this.$http
         .post(`${process.env.VUE_APP_API}/logout`)
         .then((response) => {
-          console.log(response)
-          this.$toast.open({
-            message: '登出成功!',
-            type: 'success'
-            // all of other options may go here
-          })
+          alert(response.data.message)
           this.$router.push('/login')
         })
         .catch((error) => {
-          console.dir(error)
+          alert(error.response.data.message)
         })
     }
   }

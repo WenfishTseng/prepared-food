@@ -8,13 +8,22 @@
     </div>
   </Loading>
   <div class="container my-5 my-lg-6">
-    <div class="row row-cols-md-3 row-cols-lg-6 g-md-2 g-lg-3 d-none d-md-flex" data-aos="fade-top" data-aos-duration="1500">
+    <div
+      class="row row-cols-md-3 row-cols-lg-6 g-md-2 g-lg-3 d-none d-md-flex"
+      data-aos="fade-top"
+      data-aos-duration="1500"
+    >
       <div class="category-hover col px-0">
         <div
           @click="getProducts"
           class="d-flex align-items-center justify-content-around border-end border-2 border-light"
         >
-          <img src="./../../assets/images/steak.png" width="50" height="50" />
+          <img
+            src="./../../assets/images/steak.png"
+            alt="icon"
+            width="50"
+            height="50"
+          />
           <p class="mb-0 fw-bold">全部</p>
         </div>
       </div>
@@ -23,7 +32,12 @@
           @click="renderProductsByCategory('肉類')"
           class="d-flex align-items-center justify-content-around border-end border-2 border-light"
         >
-          <img src="./../../assets/images/meat.png" width="50" height="50" />
+          <img
+            src="./../../assets/images/meat.png"
+            alt="icon"
+            width="50"
+            height="50"
+          />
           <p class="mb-0 fw-bold">肉類</p>
         </div>
       </div>
@@ -32,7 +46,12 @@
           @click="renderProductsByCategory('湯品')"
           class="d-flex align-items-center justify-content-around border-end border-2 border-light"
         >
-          <img src="./../../assets/images/hot.png" width="50" height="50" />
+          <img
+            src="./../../assets/images/hot.png"
+            alt="icon"
+            width="50"
+            height="50"
+          />
           <p class="mb-0 fw-bold">湯品</p>
         </div>
       </div>
@@ -41,7 +60,12 @@
           @click="renderProductsByCategory('飯類')"
           class="d-flex align-items-center justify-content-around border-end border-2 border-light"
         >
-          <img src="./../../assets/images/rice.png" width="50" height="50" />
+          <img
+            src="./../../assets/images/rice.png"
+            alt="icon"
+            width="50"
+            height="50"
+          />
           <p class="mb-0 fw-bold">飯類</p>
         </div>
       </div>
@@ -54,6 +78,7 @@
             src="./../../assets/images/spaghetti.png"
             width="50"
             height="50"
+            alt="icon"
           />
           <p class="mb-0 fw-bold">麵類</p>
         </div>
@@ -63,12 +88,21 @@
           @click="renderProductsByCategory('甜點')"
           class="d-flex align-items-center justify-content-around px-3"
         >
-          <img src="./../../assets/images/lasagna.png" width="50" height="50" />
+          <img
+            src="./../../assets/images/lasagna.png"
+            alt="icon"
+            width="50"
+            height="50"
+          />
           <p class="mb-0 fw-bold">甜點</p>
         </div>
       </div>
     </div>
-    <div class="row justify-content-center mb-3 my-md-5" data-aos="fade-left" data-aos-duration="1500">
+    <div
+      class="row justify-content-center mb-3 my-md-5"
+      data-aos="fade-left"
+      data-aos-duration="1500"
+    >
       <div class="col-md-8 col-lg-6">
         <form class="d-flex">
           <input
@@ -77,7 +111,11 @@
             type="search"
             placeholder="今天要吃甚麼"
           />
-          <button class="btn btn-outline-secondary" type="submit" @click.prevent="searchKeyword">
+          <button
+            class="btn btn-outline-secondary"
+            type="submit"
+            @click.prevent="searchKeyword"
+          >
             Search
           </button>
         </form>
@@ -92,7 +130,7 @@
                 <img
                   :src="product.imageUrl"
                   class="card-img-top"
-                  :alt="product.title"
+                  alt="product"
                 />
               </router-link>
               <div
@@ -111,7 +149,7 @@
                   {{ product.price }} 元
                 </div>
                 <div class="d-flex align-items-center" v-else>
-                  <del class="h6">原價 {{ product.origin_price }} 元</del>
+                  <del class="h6 opacity-75">原價 {{ product.origin_price }} 元</del>
                   <div class="h5 fw-bold ms-1">
                     特價
                     <span class="text-danger">{{ product.price }}</span>
@@ -120,7 +158,7 @@
                 </div>
               </div>
               <div class="card-footer bg-transparent border-top-0 px-0">
-                <div class="row row-cols-md-2 g-1">
+                <div class="row row-cols-md-2 g-2">
                   <div class="col">
                     <button
                       type="button"
@@ -184,7 +222,6 @@ export default {
       pagination: {}
     }
   },
-  components: { PaginationView },
   methods: {
     getAllProdictsList () {
       const apiUrl = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products/all`
@@ -219,7 +256,7 @@ export default {
           alert(response.data.message)
         })
         .catch((error) => {
-          alert(error)
+          alert(error.response.data.message)
         })
     },
     renderProductsByCategory (category, page = 1) {
@@ -259,10 +296,7 @@ export default {
   },
   created () {
     AOS.init({})
-  },
-  mounted () {
     this.getProducts()
-    this.getAllProdictsList()
   }
 }
 </script>
