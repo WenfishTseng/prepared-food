@@ -149,7 +149,7 @@
                   {{ product.price }} 元
                 </div>
                 <div class="d-flex align-items-center" v-else>
-                  <del class="h6">原價 {{ product.origin_price }} 元</del>
+                  <del class="h6 opacity-75">原價 {{ product.origin_price }} 元</del>
                   <div class="h5 fw-bold ms-1">
                     特價
                     <span class="text-danger">{{ product.price }}</span>
@@ -158,7 +158,7 @@
                 </div>
               </div>
               <div class="card-footer bg-transparent border-top-0 px-0">
-                <div class="row row-cols-md-2 g-1">
+                <div class="row row-cols-md-2 g-2">
                   <div class="col">
                     <button
                       type="button"

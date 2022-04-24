@@ -12,7 +12,7 @@
               加熱煮藝
             </h1>
             <h2
-              class="h5 mb-6 fw-bold text-nowrap logo text-dark text-shadow fst-italic"
+              class="h5 mb-6 fw-bold text-nowrap logo text-dark fst-italic"
               data-aos="fade-left"
               data-aos-duration="1300"
             >
@@ -85,14 +85,9 @@
             雙手奉上每份即時料理，在家簡單加熱，就可以與家人、朋友享用我們用心提供的美味餐點，我們堅持分享好的食材，輕鬆的加熱方式，在家也能愜意的擁抱重要的每個時刻。
           </p>
           <div class="row mb-3" data-aos="fade-right" data-aos-duration="1500">
-            <div class="col-6">
+            <div class="offset-6 col-6 text-end">
               <router-link class="btn btn-primary w-100" to="/products"
                 >立即購買</router-link
-              >
-            </div>
-            <div class="col-6">
-              <router-link to="/products" class="btn btn-outline-dark w-100"
-                >查看更多</router-link
               >
             </div>
           </div>

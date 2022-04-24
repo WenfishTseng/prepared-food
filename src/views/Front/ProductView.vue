@@ -30,7 +30,7 @@
           </div>
           <div v-else>
             <div class="h5 text-danger fw-bold">
-              <span class="h6 text-dark text-decoration-line-through me-3">
+              <span class="h6 text-dark text-decoration-line-through opacity-75 me-3">
                 原價 {{ product.origin_price }} 元
               </span>
               現在只要 {{ product.price }} 元
